@@ -1,0 +1,5 @@
+<h1>{{ pageTitle }}</h1>
+<figure *ngFor="let pokemon of pokemons" (click)="choosePokemon(pokemon)">
+  <img src="{{ pokemon.picture }}" alt="{{ pokemon.name }}">
+  <figcaption>{{ pokemon.name }}</figcaption>
+</figure>
