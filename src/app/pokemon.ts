@@ -5,5 +5,5 @@ export class Pokemon {
   name: string;
   picture: string;
   types: Array<string>;
-  created: string;
+  created: Date;
 }
