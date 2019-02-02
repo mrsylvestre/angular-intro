@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     this.pokemons = POKEMONS;
   }
 
-  choosePokemon(pokemon: Pokemon) {
+  selectPokemon(pokemon: Pokemon) {
     console.log(`vous avez choisi ${pokemon.name}`);
   }
 }
