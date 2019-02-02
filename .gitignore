@@ -1,2 +1,3 @@
 #ignore compiled files
-*src/dist/*
+src/dist
+node_modules/
