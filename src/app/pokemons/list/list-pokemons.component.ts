@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from './pokemon';
-import { POKEMONS } from './mock-pokemons';
+import { POKEMONS } from '../mock-pokemons';
 import { Router } from '@angular/router';
+import { Pokemon } from '../shared/interface/pokemon';
 
 @Component({
   selector: 'list-pokemons',
-  templateUrl: './app/list-pokemons.component.html'
+  templateUrl: './app/pokemons/list/list-pokemons.component.html'
 })
 export class ListPokemonsComponent implements OnInit {
   private pageTitle = 'Liste de Pokémons';

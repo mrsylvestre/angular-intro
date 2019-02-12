@@ -2,24 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CardBorderDirective } from './card-border.directive';
-import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
-import { ListPokemonsComponent } from './list-pokemons.component';
-import { DetailPokemonComponent } from './details-pokemon.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './404.component';
+import { PokemonsModule } from './pokemons/pokemons.module';
 
 @NgModule({
+  /*
+  The modules import order is important.
+  We need the PokemonsModule Routes to be called
+  before the default AppRoutingModule
+  */
   imports: [
     BrowserModule,
+    PokemonsModule,
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    CardBorderDirective,
-    PokemonTypeColorPipe,
-    ListPokemonsComponent,
-    DetailPokemonComponent,
     PageNotFoundComponent
   ],
   bootstrap: [

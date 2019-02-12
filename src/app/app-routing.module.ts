@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListPokemonsComponent } from './list-pokemons.component';
-import { DetailPokemonComponent } from './details-pokemon.component';
 import { PageNotFoundComponent } from './404.component';
 
-// routes
+// The principal router calls the main routes from the app.
+// Then the submodules Routers (like: ./pokemons/pokemons-routing.module.ts)
+// will take on themselves the rest of the routes of the app
 const appRoutes: Routes = [
-	{ path: 'pokemons', component: ListPokemonsComponent },
-	{ path: 'pokemons/:id', component: DetailPokemonComponent },
 	{ path: '', redirectTo: 'pokemons', pathMatch: 'full' },
 	{ path: '**', component: PageNotFoundComponent }
 ];

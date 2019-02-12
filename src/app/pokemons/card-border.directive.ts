@@ -1,5 +1,7 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-
+// With a directive you can now add attributes
+// to template's <tags> like : <el pkmnCardBorder ></el>
+// and bind functions to events listener
 @Directive({
   selector: '[pkmnCardBorder]'
 })
