@@ -12,11 +12,23 @@ export class PokemonsService {
   // Retourne le pokémon avec l'identifiant passé en paramètre
   getPokemon(id: number): Pokemon {
     let pokemons = this.getPokemons();
-
     for (let index = 0; index < pokemons.length; index++) {
       if (id === pokemons[index].id) {
         return pokemons[index];
       }
     }
+  }
+
+  getPokemonTypes(): Array<string> {
+    let pokemons = this.getPokemons();
+    let types: string[] = [];
+    for (let index = 0; index < pokemons.length; index++) {
+      pokemons[index].types.forEach(element => {
+        if (types.indexOf(element) === -1) {
+          types.push(element);
+        }
+      });
+    }
+    return types;
   }
 }

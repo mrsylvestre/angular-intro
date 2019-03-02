@@ -1,31 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../shared/interface/pokemon';
-import { POKEMONS } from '../mock-pokemons';
+import { PokemonsService } from '../pokemon.service';
 
 @Component({
-	selector: 'detail-pokemon',
-	templateUrl: './app/pokemons/details/details-pokemon.component.html'
+  selector: 'detail-pokemon',
+  templateUrl: './app/pokemons/details/details-pokemon.component.html'
 })
 export class DetailPokemonComponent implements OnInit {
+  pokemons: Pokemon[] = null;
+  pokemon: Pokemon = null;
 
-	pokemons: Pokemon[] = null;
-	pokemon: Pokemon = null;
+  constructor(
+    private pokemonsService: PokemonsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-	constructor(private route: ActivatedRoute, private router: Router) {}
+  ngOnInit(): void {
+    this.pokemons = this.pokemonsService.getPokemons();
 
-	ngOnInit(): void {
-		this.pokemons = POKEMONS;
+    let id = +this.route.snapshot.params['id'];
+    this.pokemon = this.pokemonsService.getPokemon(id);
+  }
 
-		let id = +this.route.snapshot.paramMap.get('id');
-		for (let i = 0; i < this.pokemons.length; i++) {
-			if (this.pokemons[i].id == id) {
-				this.pokemon = this.pokemons[i];
-			}
-		}
-	}
+  goBack(): void {
+    this.router.navigate(['/pokemons']);
+  }
 
-	goBack(): void {
-		this.router.navigate(['/pokemons']);
-	}
+  goEdit(pokemon: Pokemon): void {
+    this.router.navigate(['/pokemons/edit', pokemon.id]);
+  }
 }

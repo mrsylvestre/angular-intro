@@ -7,15 +7,24 @@ import { CardBorderDirective } from './card-border.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonRoutingModule } from './pokemons-routing.module';
 import { PokemonsService } from './pokemon.service';
-
+import { PokemonFormComponent } from './form/pokemon-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditPokemonComponent } from './edit/edit-pokemons.component';
 @NgModule({
   // default module class that you need to inherit in components attached
-  imports: [CommonModule, PokemonRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    PokemonRoutingModule
+  ],
   declarations: [
     ListPokemonsComponent,
     DetailPokemonComponent,
     CardBorderDirective,
-    PokemonTypeColorPipe
+    PokemonTypeColorPipe,
+    PokemonFormComponent,
+    EditPokemonComponent
   ],
   // Providers are the services to use with components attached
   providers: [PokemonsService]

@@ -6,16 +6,12 @@ import { PageNotFoundComponent } from './404.component';
 // Then the submodules Routers (like: ./pokemons/pokemons-routing.module.ts)
 // will take on themselves the rest of the routes of the app
 const appRoutes: Routes = [
-	{ path: '', redirectTo: 'pokemons', pathMatch: 'full' },
-	{ path: '**', component: PageNotFoundComponent }
+  { path: '', redirectTo: 'pokemons', pathMatch: 'full' }, // Any empty path
+  { path: '**', component: PageNotFoundComponent } // Any route not catched by paths (404)
 ];
 
 @NgModule({
-	imports: [
-		RouterModule.forRoot(appRoutes)
-	],
-	exports: [
-		RouterModule
-	]
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
