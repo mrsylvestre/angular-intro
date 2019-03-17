@@ -8,6 +8,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 export class CardBorderDirective {
   private initialColor: string = '#f5f5f5';
   private defaultColor: string = 'rebeccapurple';
+  private defaultCursor: string = 'pointer';
   private defaultHeight: number = 180;
   private defaultOverflow: string = 'hidden';
 
@@ -17,6 +18,7 @@ export class CardBorderDirective {
     this.setBorder(this.initialColor);
     this.setHeight(this.defaultHeight);
     this.setOverflow(this.defaultOverflow);
+    this.setCursor(this.defaultCursor);
   }
 
   @HostListener('mouseenter') onMouseEnter() {
@@ -38,5 +40,9 @@ export class CardBorderDirective {
 
   private setOverflow(value: string) {
     this.el.nativeElement.style.overflow = value;
+  }
+
+  private setCursor(cursor: string) {
+    this.el.nativeElement.style.cursor = cursor;
   }
 }
