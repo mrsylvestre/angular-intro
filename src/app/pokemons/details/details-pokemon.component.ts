@@ -8,7 +8,6 @@ import { PokemonsService } from '../pokemon.service';
   templateUrl: './app/pokemons/details/details-pokemon.component.html'
 })
 export class DetailPokemonComponent implements OnInit {
-  pokemons: Pokemon[] = null;
   pokemon: Pokemon = null;
 
   constructor(
@@ -18,10 +17,13 @@ export class DetailPokemonComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.pokemons = this.pokemonsService.getPokemons();
+    this.getPokemon();
+  }
 
+  getPokemon(): void {
     let id = +this.route.snapshot.params['id'];
-    this.pokemon = this.pokemonsService.getPokemon(id);
+    this.pokemonsService.getPokemon(id)
+      .subscribe(pokemon => {this.pokemon = pokemon});
   }
 
   goBack(): void {

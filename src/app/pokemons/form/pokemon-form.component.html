@@ -41,8 +41,13 @@
           <label for="types">Types</label>
           <p *ngFor="let type of types">
             <label>
-              <input type="checkbox" class="filled-in" id="{{ type }}" [value]="type" [checked]="hasType(type)"
-                [disabled]="!isTypesValid(type)" (change)="selectType($event, type)" />
+              <input type="checkbox"
+              id="{{ type }}"
+              class="filled-in"
+              [value]="type"
+              [checked]="hasType(type)"
+              [disabled]="!isTypesValid(type)"
+              (change)="selectType($event, type)"/>
               <span [attr.for]="type">
                 <div class="{{ type | pokemonTypeColor }}">
                   {{ type }}

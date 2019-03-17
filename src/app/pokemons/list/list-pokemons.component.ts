@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { POKEMONS } from '../mock-pokemons';
 import { Router } from '@angular/router';
 import { Pokemon } from '../shared/interface/pokemon';
+import { PokemonsService } from '../pokemon.service';
 
 @Component({
   selector: 'list-pokemons',
@@ -12,11 +12,17 @@ export class ListPokemonsComponent implements OnInit {
   private pokemons: Pokemon[];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private pokemonsService: PokemonsService
   ) {}
 
   ngOnInit() {
-    this.pokemons = POKEMONS;
+    this.getPokemons();
+  }
+
+  getPokemons(): void {
+    this.pokemonsService.getPokemons()
+      .subscribe(pokemons => {this.pokemons = pokemons});
   }
 
   selectPokemon(pokemon: Pokemon) {

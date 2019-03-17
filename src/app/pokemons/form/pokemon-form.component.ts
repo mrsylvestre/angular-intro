@@ -18,9 +18,14 @@ export class PokemonFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.pokemons = this.pokemonsService.getPokemons();
+    this.getPokemons();
     // Initialisation de la propriété types
     this.types = this.pokemonsService.getPokemonTypes();
+  }
+
+  getPokemons(): void {
+    this.pokemonsService.getPokemons()
+      .subscribe(pokemons => {this.pokemons = pokemons});
   }
 
   // Détermine si le type passé en paramètres appartient ou non au pokémon en cours d'édition.
@@ -62,7 +67,7 @@ export class PokemonFormComponent implements OnInit {
 
   // La méthode appelée lorsque le formulaire est soumis.
   onSubmit(): void {
-    let link = ['/pokemons', this.pokemon.id];
-    this.router.navigate(link);
+    this.pokemonsService.updatePokemon(this.pokemon)
+    .subscribe(() => this.goBack())
   }
 }
