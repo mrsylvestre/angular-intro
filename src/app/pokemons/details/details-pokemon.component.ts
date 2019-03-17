@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../shared/interface/pokemon';
 import { PokemonsService } from '../pokemon.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'detail-pokemon',
@@ -24,6 +25,11 @@ export class DetailPokemonComponent implements OnInit {
     let id = +this.route.snapshot.params['id'];
     this.pokemonsService.getPokemon(id)
       .subscribe(pokemon => {this.pokemon = pokemon});
+  }
+
+  deletePokemon(pokemon: Pokemon) {
+    this.pokemonsService.deletePokemon(pokemon)
+      .subscribe(() => this.goBack());
   }
 
   goBack(): void {
