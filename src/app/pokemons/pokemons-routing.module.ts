@@ -9,7 +9,7 @@ import { EditPokemonComponent } from './edit/edit-pokemons.component';
 const pokemonsRoutes: Routes = [
   { path: 'pokemons', component: ListPokemonsComponent },
   { path: 'pokemons/edit/:id', component: EditPokemonComponent },
-  { path: 'pokemons/:id', component: DetailPokemonComponent }
+  { path: 'pokemon/:id', component: DetailPokemonComponent }
 ];
 
 @NgModule({

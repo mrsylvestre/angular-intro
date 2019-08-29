@@ -21,12 +21,13 @@ export class ListPokemonsComponent implements OnInit {
   }
 
   getPokemons(): void {
-    this.pokemonsService.getPokemons()
-      .subscribe(pokemons => {this.pokemons = pokemons});
+    this.pokemonsService.getPokemons().subscribe(pokemons => {
+      this.pokemons = pokemons;
+    });
   }
 
   selectPokemon(pokemon: Pokemon) {
-    let link = ['/pokemons', pokemon.id];
+    let link = ['/pokemon', pokemon.id];
     this.router.navigate(link);
   }
 }

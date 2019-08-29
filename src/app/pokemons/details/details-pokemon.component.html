@@ -36,14 +36,18 @@
           </table>
         </div>
         <div class="card-action row">
-          <button class="waves-effect waves-light btn grey lighten-5 black-text col s3 mx-2" (click)="goBack()">Retour</button>
+          <button class="waves-effect waves-light btn grey lighten-5 black-text col s3 mx-2"
+            (click)="goBack()">Retour</button>
           <div class="col s1"></div>
           <button class="waves-effect waves-light btn col s3" (click)="goEdit(pokemon)">Éditer</button>
           <div class="col s1"></div>
-          <button class="waves-effect waves-light btn-flat red-text col s3 mx-2" (click)="deletePokemon(pokemon)">Supprimer</button>
+          <button class="waves-effect waves-light btn-flat red-text col s3 mx-2"
+            (click)="deletePokemon(pokemon)">Supprimer</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-<h4 *ngIf="!pokemon" class="center">Aucun pokémon à afficher !</h4>
+<h4 *ngIf="!pokemon" class="center">
+  <spinning-loader></spinning-loader>
+</h4>

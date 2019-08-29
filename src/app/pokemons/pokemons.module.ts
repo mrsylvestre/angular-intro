@@ -10,6 +10,8 @@ import { PokemonsService } from './pokemon.service';
 import { PokemonFormComponent } from './form/pokemon-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPokemonComponent } from './edit/edit-pokemons.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { LoaderComponent } from '../shared/components/loader.component';
 @NgModule({
   // default module class that you need to inherit in components attached
   imports: [
@@ -24,7 +26,9 @@ import { EditPokemonComponent } from './edit/edit-pokemons.component';
     CardBorderDirective,
     PokemonTypeColorPipe,
     PokemonFormComponent,
-    EditPokemonComponent
+    EditPokemonComponent,
+    SearchBarComponent,
+    LoaderComponent
   ],
   // Providers are the services to use with components attached
   providers: [PokemonsService]

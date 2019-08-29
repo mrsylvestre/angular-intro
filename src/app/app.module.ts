@@ -18,16 +18,13 @@ import { InMemoryDataService } from './in-memory-data.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false
+    }),
     PokemonsModule,
     AppRoutingModule
   ],
-  declarations: [
-    AppComponent,
-    PageNotFoundComponent
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  declarations: [AppComponent, PageNotFoundComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
