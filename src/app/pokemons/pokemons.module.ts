@@ -12,13 +12,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPokemonComponent } from './edit/edit-pokemons.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { LoaderComponent } from '../shared/components/loader.component';
+import { AuthGuard } from '../auth-guard.service';
+import { AuthService } from '../auth.service';
+import { LoginRoutingModule } from '../login-routing.module';
+import { LoginComponent } from '../login.component';
 @NgModule({
   // default module class that you need to inherit in components attached
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    PokemonRoutingModule
+    PokemonRoutingModule,
+    LoginRoutingModule
   ],
   declarations: [
     ListPokemonsComponent,
@@ -28,9 +33,10 @@ import { LoaderComponent } from '../shared/components/loader.component';
     PokemonFormComponent,
     EditPokemonComponent,
     SearchBarComponent,
-    LoaderComponent
+    LoaderComponent,
+    LoginComponent
   ],
   // Providers are the services to use with components attached
-  providers: [PokemonsService]
+  providers: [PokemonsService, AuthGuard, AuthService]
 })
 export class PokemonsModule {}
