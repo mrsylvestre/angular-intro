@@ -1,3 +1,4 @@
 #ignore compiled files
+**/.firebase*
 **/src/dist
 node_modules/

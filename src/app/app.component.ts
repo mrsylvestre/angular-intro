@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { AuthService } from "./auth.service";
 import { Router } from "@angular/router";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-component',
@@ -10,7 +11,12 @@ export class AppComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
-    ) { }
+    private titleService: Title
+  ) { }
+
+  public updateTitle(title: string) {
+    this.titleService.setTitle(title);
+  }
 
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn;
@@ -18,6 +24,6 @@ export class AppComponent {
 
   logout(): void {
     this.authService.logout();
-		this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 }

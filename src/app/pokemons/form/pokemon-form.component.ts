@@ -14,9 +14,9 @@ export class PokemonFormComponent implements OnInit {
   types: Array<string>; // types disponibles pour un pokémon : 'Eau', 'Feu', etc ...
 
   constructor(
-    private pokemonsService: PokemonsService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private pokemonsService: PokemonsService
+  ) { }
 
   ngOnInit(): void {
     this.getPokemons();

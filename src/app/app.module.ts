@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,6 @@ import { AuthGuard } from './auth-guard.service';
   ],
   declarations: [AppComponent, PageNotFoundComponent],
   bootstrap: [AppComponent],
-  providers: [AuthGuard]
+  providers: [AuthGuard, Title]
 })
-export class AppModule {}
+export class AppModule { }

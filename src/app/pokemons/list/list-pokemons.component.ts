@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pokemon } from '../shared/interface/pokemon';
 import { PokemonsService } from '../pokemon.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'list-pokemons',
@@ -13,11 +14,13 @@ export class ListPokemonsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private pokemonsService: PokemonsService
-  ) {}
+    private pokemonsService: PokemonsService,
+    private appComponent: AppComponent
+  ) { }
 
   ngOnInit() {
     this.getPokemons();
+    this.appComponent.updateTitle(this.pageTitle);
   }
 
   getPokemons(): void {
